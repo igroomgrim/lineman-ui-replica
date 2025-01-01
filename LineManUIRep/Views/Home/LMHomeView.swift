@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct LMHomeView: View {
+    private let defaultSpacing: CGFloat = 16
+    
     var body: some View {
-        VStack {
-            Text("Home")
-                .font(.title)
-                .bold()
+        ZStack(alignment: .top) {
+            LMHeaderBackground()
+            
+            ScrollView {
+                VStack(spacing: defaultSpacing) {
+                }
+            }
         }
     }
 }
