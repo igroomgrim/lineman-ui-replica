@@ -18,6 +18,7 @@ struct LMHomeView: View {
                 VStack(spacing: 16) {
                     LMHomeProfileSection(customerName: "John Doe", promotionText: "Every Meal Start ฿49")
                     LMHomeDeliveryAddressSection(address: "PeonyHomeBake Coffee Shop")
+                    LMHomeServicesSection()
                 }
                 .padding(defaultSpacing)
             }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LMHeaderBackground: View {
     private let cornerRadius: CGFloat = 16
-    private let height: CGFloat = UIScreen.main.bounds.height * 0.33
+    private let height: CGFloat = UIScreen.main.bounds.height * 0.36
     
     var body: some View {
         Rectangle()

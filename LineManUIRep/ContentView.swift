@@ -22,6 +22,8 @@ struct ContentView: View {
         .safeAreaPadding(.bottom, 24)
         .safeAreaPadding(.top, 48)
         .ignoresSafeArea(edges: [.top, .bottom])
+        .background(.gray.opacity(0.1))
+        .preferredColorScheme(.light)
     }
 }
 
