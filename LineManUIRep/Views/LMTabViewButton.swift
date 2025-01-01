@@ -8,28 +8,30 @@
 import SwiftUI
 
 struct LMTabViewButton: View {
-    let title: String
-    let icon: String
-    var isSelected: Bool = false
-    var action: () -> Void
+    let screenType: ScreenType
+    @Binding var selectedTab: ScreenType
     
     var body: some View {
-        Button(action: action) {
+        Button(action: {
+            withAnimation(.easeInOut) {
+                selectedTab = screenType
+            }
+        }) {
             VStack(spacing: 6) {
-                Image(systemName: icon)
+                Image(systemName: screenType.iconName)
                     .font(.system(size: 18))
                     .frame(height: 18)
                 
-                Text(title)
+                Text(screenType.title)
                     .font(.caption)
                     .bold()
             }
             .frame(maxWidth: .infinity)
-            .foregroundColor(isSelected ? .green : .black)
+            .foregroundColor(screenType == selectedTab ? .green : .black)
         }
     }
 }
 
 #Preview {
-    LMTabViewButton(title: "Home", icon: "house", isSelected: true, action: {})
+    LMTabViewButton(screenType: .home, selectedTab: .constant(.home))
 }

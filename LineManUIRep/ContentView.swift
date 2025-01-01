@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedTab: Int = 0
+    @State private var selectedTab: ScreenType = .home
     
     var body: some View {
         VStack {
+            if selectedTab == .home {
+                LMHomeView()
+            }
+            
             Spacer()
             LMMainTabView(selectedTab: $selectedTab)
         }

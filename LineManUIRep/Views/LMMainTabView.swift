@@ -8,25 +8,17 @@
 import SwiftUI
 
 struct LMMainTabView: View {
-    @Binding var selectedTab: Int
+    @Binding var selectedTab: ScreenType
 
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             Divider()
                 .frame(height: 1)
             HStack {
-                LMTabViewButton(title: "Home", icon: "house", isSelected: selectedTab == 0) {
-                    selectedTab = 0
-                }
-                LMTabViewButton(title: "Orders", icon: "clock", isSelected: selectedTab == 1) {
-                    selectedTab = 1
-                }
-                LMTabViewButton(title: "Inbox", icon: "envelope", isSelected: selectedTab == 2) {
-                    selectedTab = 2
-                }
-                LMTabViewButton(title: "More", icon: "ellipsis", isSelected: selectedTab == 3) {
-                    selectedTab = 3
-                }
+                LMTabViewButton(screenType: .home, selectedTab: $selectedTab)
+                LMTabViewButton(screenType: .orders, selectedTab: $selectedTab)
+                LMTabViewButton(screenType: .inbox, selectedTab: $selectedTab)
+                LMTabViewButton(screenType: .more, selectedTab: $selectedTab)
             }
             .padding(.vertical, 8)
             .background(Color.white)
@@ -35,5 +27,5 @@ struct LMMainTabView: View {
 }
 
 #Preview {
-    LMMainTabView(selectedTab: .constant(0))
+    LMMainTabView(selectedTab: .constant(.home))
 }
