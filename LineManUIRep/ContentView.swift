@@ -19,8 +19,9 @@ struct ContentView: View {
             Spacer()
             LMMainTabView(selectedTab: $selectedTab)
         }
-        .safeAreaPadding(.bottom, 22)
-        .ignoresSafeArea(edges: .bottom)
+        .safeAreaPadding(.bottom, 24)
+        .safeAreaPadding(.top, 48)
+        .ignoresSafeArea(edges: [.top, .bottom])
     }
 }
 

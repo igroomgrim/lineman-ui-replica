@@ -15,8 +15,10 @@ struct LMHomeView: View {
             LMHeaderBackground()
             
             ScrollView {
-                VStack(spacing: defaultSpacing) {
+                VStack {
+                    LMHomeProfileSection(customerName: "John Doe", promotionText: "Every Meal Start ฿49")
                 }
+                .padding(defaultSpacing)
             }
         }
     }
