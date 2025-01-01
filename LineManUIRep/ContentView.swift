@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selectedTab: Int = 0
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Spacer()
+            LMMainTabView(selectedTab: $selectedTab)
         }
-        .padding()
+        .safeAreaPadding(.bottom, 22)
+        .ignoresSafeArea(edges: .bottom)
     }
 }
 
