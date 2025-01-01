@@ -15,8 +15,9 @@ struct LMHomeView: View {
             LMHeaderBackground()
             
             ScrollView {
-                VStack {
+                VStack(spacing: 16) {
                     LMHomeProfileSection(customerName: "John Doe", promotionText: "Every Meal Start ฿49")
+                    LMHomeDeliveryAddressSection(address: "PeonyHomeBake Coffee Shop")
                 }
                 .padding(defaultSpacing)
             }
