@@ -28,6 +28,11 @@ struct LMHomeView: View {
                 VStack {
                     LMCarouselDealSection()
                 }
+                
+                VStack {
+                    LMSrollableDealSection()
+                }
+                .padding(defaultSpacing)
             }
         }
     }

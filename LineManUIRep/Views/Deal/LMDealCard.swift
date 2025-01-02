@@ -75,25 +75,34 @@ extension LMDealCard {
     func smallCard() -> some View {
         Button(action: {}) {
             VStack(alignment: .leading, spacing: 0) {
-                // Image section with placeholder
+                // Image section
                 ZStack(alignment: .topLeading) {
-                    Image(systemName: "photo")
+                    Image("")
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: .fill)
                         .frame(height: 120)
-                        .foregroundStyle(LMColor.gradientGreen)
+                        .clipped()
+                        .background(LMColor.gradientGreen)
+                        .overlay {
+                            Image(systemName: "photo.fill")
+                                .font(.system(size: 40))
+                                .foregroundColor(.black)
+                                .opacity(0.5)
+                        }
                 }
                 
                 // Text content section
-                VStack(alignment: .leading, spacing: 0) {
+                VStack(alignment: .leading, spacing: 4) {
                     Text(title)
                         .font(.system(size: 12))
                         .bold()
                         .foregroundColor(.black.opacity(0.8))
                     
-                    Text(subTitle)
-                        .font(.caption)
-                        .foregroundColor(.gray)
+                    
+                        Text(subTitle)
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                    
                 }
                 .padding(12)
             }
@@ -101,7 +110,7 @@ extension LMDealCard {
             .background(Color.white)
             .cornerRadius(8)
             .shadow(color: .black.opacity(0.05), radius: 2, y: 2)
-
+            .padding(.bottom, 2)
         }
     }
 }
