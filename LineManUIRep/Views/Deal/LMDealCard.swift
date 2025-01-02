@@ -46,9 +46,9 @@ extension LMDealCard {
                 }
             }
             .frame(maxWidth: .infinity)
-            .frame(height: 240)
+            .frame(height: 228)
             .background(LMColor.gradientGreen)
-            .cornerRadius(12)
+            .cornerRadius(8)
             .shadow(color: .black.opacity(0.05), radius: 2, y: 2)
         }
     }
@@ -64,10 +64,10 @@ extension LMDealCard {
                     .padding(.leading, 16)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .frame(height: 88)
+            .frame(height: 124)
             .background(LMColor.gradientGreen)
             .foregroundColor(.white)
-            .cornerRadius(12)
+            .cornerRadius(8)
             .shadow(color: .gray.opacity(0.4), radius: 4)
         }
     }
@@ -99,7 +99,7 @@ extension LMDealCard {
             }
             .frame(width: 160)
             .background(Color.white)
-            .cornerRadius(12)
+            .cornerRadius(8)
             .shadow(color: .black.opacity(0.05), radius: 2, y: 2)
 
         }

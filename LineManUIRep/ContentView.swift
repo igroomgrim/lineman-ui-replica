@@ -20,7 +20,7 @@ struct ContentView: View {
             LMMainTabView(selectedTab: $selectedTab)
         }
         .safeAreaPadding(.bottom, 24)
-        .safeAreaPadding(.top, 48)
+        .safeAreaPadding(.top, 72)
         .ignoresSafeArea(edges: [.top, .bottom])
         .background(.gray.opacity(0.1))
         .preferredColorScheme(.light)

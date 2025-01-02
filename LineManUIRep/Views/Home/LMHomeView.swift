@@ -14,13 +14,20 @@ struct LMHomeView: View {
         ZStack(alignment: .top) {
             LMHeaderBackground()
             
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 16) {
                     LMHomeProfileSection(customerName: "John Doe", promotionText: "Every Meal Start ฿49")
                     LMHomeDeliveryAddressSection(address: "PeonyHomeBake Coffee Shop")
                     LMHomeServicesSection()
+                    LMSingleDealSection()
                 }
-                .padding(defaultSpacing)
+                .padding(.horizontal, defaultSpacing)
+                
+                Spacer(minLength: defaultSpacing)
+                
+                VStack {
+                    LMCarouselDealSection()
+                }
             }
         }
     }
