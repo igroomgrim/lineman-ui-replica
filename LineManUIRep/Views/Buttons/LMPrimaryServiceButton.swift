@@ -14,16 +14,18 @@ struct LMPrimaryServiceButton: View {
     
     var body: some View {
         Button(action: {}) {
-            HStack {
+            HStack(alignment: .center) {
+                Spacer()
+                    
                 // Left side - Title
                 Text(title)
                     .font(.subheadline)
                     .bold()
-                    .foregroundColor(.black)
-                    .padding(.leading, 44)
+                    .foregroundColor(LMColor.fontSoftBlack)
+                    .layoutPriority(1)
                 
                 Spacer()
-                
+                    
                 // Right side - Image
                 ZStack(alignment: .center) {
                     Image(systemName: image)
@@ -31,7 +33,7 @@ struct LMPrimaryServiceButton: View {
                         .scaledToFit()
                         .frame(width: 66, height: 66)
                         .foregroundStyle(LMColor.gradientGreen)
-                        .offset(x: 0, y: 16)
+                        .offset(x: 0, y: 20)
                     
                     // Badge if exists
                     if let badge = badge {
@@ -46,7 +48,8 @@ struct LMPrimaryServiceButton: View {
                             .offset(x: 0, y: -16)
                     }
                 }
-                .padding(.trailing, 16)
+                
+                Spacer()
             }
             .frame(maxWidth: .infinity)
             .frame(height: 80)
@@ -58,5 +61,10 @@ struct LMPrimaryServiceButton: View {
 }
 
 #Preview {
-    LMPrimaryServiceButton(title: "Delivery", image: "bicycle.circle", badge: "New")
+    LMPrimaryServiceButton(title: "Food", image: "fork.knife", badge: "Discount 100฿")
+    
+    HStack {
+        LMPrimaryServiceButton(title: "Food", image: "hand.rays", badge: "ใหม่")
+        LMPrimaryServiceButton(title: "Ride", image: "moped", badge: "New")
+    }
 }
