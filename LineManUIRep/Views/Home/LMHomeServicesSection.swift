@@ -16,6 +16,7 @@ struct LMHomeServicesSection: View {
                 LMPrimaryServiceButton(title: "Food", image: "cart", badge: "ลด ฿100")
                 LMPrimaryServiceButton(title: "Ride", image: "scooter", badge: "ใหม่")
             }.frame(maxWidth: .infinity)
+            
             HStack(spacing: 12) {
                 LMSecondaryServiceButton(
                     title: "Messenger",

@@ -52,9 +52,9 @@ struct LMSecondaryServiceButton: View {
             // Title
             Text(title)
                 .font(.subheadline)
-                .foregroundColor(.black)
-                .padding(.bottom, 12)
                 .bold()
+                .foregroundColor(LMColor.fontSoftBlack)
+                .padding(.bottom, 8)
         }
     }
 }
