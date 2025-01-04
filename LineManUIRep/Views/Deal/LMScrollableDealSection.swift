@@ -14,6 +14,7 @@ struct LMSrollableDealSection: View {
                 .font(.system(size: 16))
                 .bold()
                 .foregroundStyle(LMColor.fontSoftBlack)
+                .padding(.horizontal, 16)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {
@@ -24,6 +25,7 @@ struct LMSrollableDealSection: View {
                     LMDealCard(size: .small, title: "มา 1 จ่าย 5", subTitle: "อันนี้หยอกๆ")
                 }
             }
+            .contentMargins(.horizontal, 16)
         }
     }
 }

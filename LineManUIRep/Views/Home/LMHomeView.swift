@@ -36,7 +36,6 @@ struct LMHomeView: View {
             VStack {
                 LMSrollableDealSection()
             }
-            .padding(defaultSpacing)
             
         } // ScrollView
         .ignoresSafeArea(edges: .top)
