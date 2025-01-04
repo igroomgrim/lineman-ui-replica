@@ -12,15 +12,20 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            if selectedTab == .home {
+            switch selectedTab {
+            case .home:
                 LMHomeView()
+            case .orders:
+                LMOrdersView()
+            case .inbox:
+                Text("Inbox")
+            case .more:
+                Text("More")
             }
             
-            Spacer()
             LMMainTabView(selectedTab: $selectedTab)
         }
         .safeAreaPadding(.bottom, 24)
-        .safeAreaPadding(.top, 72)
         .ignoresSafeArea(edges: [.top, .bottom])
         .background(.gray.opacity(0.1))
         .preferredColorScheme(.light)

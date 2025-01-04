@@ -13,7 +13,7 @@ struct LMTabViewButton: View {
     
     var body: some View {
         Button(action: {
-            withAnimation(.easeInOut) {
+            withAnimation(.easeInOut(duration: 0.2)) {
                 selectedTab = screenType
             }
         }) {
