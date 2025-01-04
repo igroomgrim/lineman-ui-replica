@@ -47,27 +47,31 @@ struct LMOrdersView: View {
             .padding(.bottom, 8)
             
             // Custom Tab Indicator
-            HStack(alignment: .bottom) {
-                ForEach(LMOrderHistoryTab.allCases, id: \.self) { tab in
-                    Button(action: {
-                        withAnimation {
-                            selectedTab = tab
+            VStack {
+                HStack(alignment: .bottom) {
+                    ForEach(LMOrderHistoryTab.allCases, id: \.self) { tab in
+                        Button(action: {
+                            withAnimation {
+                                selectedTab = tab
+                            }
+                        }) {
+                            VStack(spacing: 8) {
+                                Text(tab.title)
+                                    .font(.system(size: 16))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(selectedTab == tab ? .green : .gray)
+                                
+                                // Green underline for selected tab
+                                Rectangle()
+                                    .fill(selectedTab == tab ? Color.green : Color.clear)
+                                    .frame(height: 3)
+                            }
                         }
-                    }) {
-                        VStack(spacing: 8) {
-                            Text(tab.title)
-                                .font(.system(size: 16))
-                                .fontWeight(.bold)
-                                .foregroundColor(selectedTab == tab ? .green : .gray)
-                            
-                            // Green underline for selected tab
-                            Rectangle()
-                                .fill(selectedTab == tab ? Color.green : Color.clear)
-                                .frame(height: 3)
-                        }
+                        .frame(maxWidth: .infinity)
                     }
-                    .frame(maxWidth: .infinity)
                 }
+                Divider()
+                    .padding(.top, -8)
             }
             
             // Tab Selector
@@ -86,6 +90,6 @@ struct LMOrdersView: View {
 }
 
 #Preview {
-//    LMOrdersView()
-    ContentView()
+    LMOrdersView()
+//    ContentView()
 }
