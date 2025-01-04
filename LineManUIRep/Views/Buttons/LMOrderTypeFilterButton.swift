@@ -15,7 +15,7 @@ struct LMOrderTypeFilterButton: View {
     var body: some View {
         Button(action: action) {
             Text(title)
-                .font(.system(size: 14))
+                .font(.system(size: 12))
                 .fontWeight(.semibold)
                 .foregroundColor(isSelected ? .white : LMColor.fontSoftBlack)
                 .padding(.horizontal, 12)
