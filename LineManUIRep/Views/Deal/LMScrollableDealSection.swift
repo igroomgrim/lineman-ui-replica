@@ -13,7 +13,7 @@ struct LMSrollableDealSection: View {
             Text("เก็บโค้ดลดสูงสุด ฿100*")
                 .font(.system(size: 16))
                 .bold()
-                .foregroundStyle(.black.opacity(0.8))
+                .foregroundStyle(LMColor.fontSoftBlack)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {

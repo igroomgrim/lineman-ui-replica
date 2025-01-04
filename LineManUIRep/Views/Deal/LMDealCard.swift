@@ -46,7 +46,7 @@ extension LMDealCard {
                 }
             }
             .frame(maxWidth: .infinity)
-            .frame(height: 228)
+            .frame(height: 224)
             .background(LMColor.gradientGreen)
             .cornerRadius(8)
             .shadow(color: .black.opacity(0.05), radius: 2, y: 2)
@@ -96,7 +96,7 @@ extension LMDealCard {
                     Text(title)
                         .font(.system(size: 12))
                         .bold()
-                        .foregroundColor(.black.opacity(0.8))
+                        .foregroundColor(LMColor.fontSoftBlack)
                     
                     
                         Text(subTitle)

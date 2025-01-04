@@ -9,14 +9,15 @@ import SwiftUI
 
 struct LMHeaderBackground: View {
     private let cornerRadius: CGFloat = 16
-    private let height: CGFloat = UIScreen.main.bounds.height * 0.36
+    private let height: CGFloat = UIScreen.main.bounds.height * 0.368
     
     var body: some View {
         Rectangle()
             .fill(LMColor.gradientGreen)
             .frame(maxWidth: .infinity, maxHeight: height)
+            .padding(.top, cornerRadius)
             .cornerRadius(cornerRadius)
-            .ignoresSafeArea(edges: .top)
+            .padding(.top, -cornerRadius)
     }
 }
 

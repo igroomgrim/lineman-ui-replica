@@ -41,19 +41,19 @@ struct LMHomeProfileSection: View {
                         
                         HStack {
                             Text(promotionText)
+                                .font(.system(size: 18))
+                                .fontWeight(.bold)
                             Image(systemName: rightArrowIcon)
+                                .font(.system(size: 16))
                         }
                         .foregroundColor(.white)
-                        .font(.system(size: 18))
-                        .bold()
                     }
                 }
-                
                 
                 Spacer()
                 
                 // Right side heart button
-                VStack {
+                HStack {
                     Button(action: {
                         isFavoritePressed = true
                     }) {
@@ -65,6 +65,7 @@ struct LMHomeProfileSection: View {
                             .shadow(radius: 2)
                     }
                 }
+                .offset(y: -4)
             }
         }
     }
@@ -72,4 +73,5 @@ struct LMHomeProfileSection: View {
 
 #Preview {
     LMHomeProfileSection(customerName: "Anak", promotionText: "Every Meal Start ฿49", isProfilePressed: .constant(false), isFavoritePressed: .constant(false))
+        .background(Color.gray)
 }

@@ -13,8 +13,8 @@ struct LMHomeServicesSection: View {
     var body: some View {
         VStack(spacing: defaultSpacing) {
             HStack(spacing: defaultSpacing) {
-                LMPrimaryServiceButton(title: "Food", image: "cart", badge: "ลด ฿100")
-                LMPrimaryServiceButton(title: "Ride", image: "scooter", badge: "ใหม่")
+                LMPrimaryServiceButton(title: "Food", image: "popcorn", badge: "ลด ฿100")
+                LMPrimaryServiceButton(title: "Ride", image: "moped", badge: "ใหม่")
             }.frame(maxWidth: .infinity)
             
             HStack(spacing: 12) {

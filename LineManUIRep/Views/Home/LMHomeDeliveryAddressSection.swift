@@ -8,24 +8,26 @@
 import SwiftUI
 
 struct LMHomeDeliveryAddressSection: View {
+    private let sectionHeight: CGFloat = 52
     let address: String
     
     var body: some View {
-        Button(action: {
-        }) {
+        Button(action: {}) {
             HStack {
                 Image(systemName: "house")
                     .foregroundColor(.white)
                     .bold()
                 Text(address)
                     .foregroundColor(.white)
+                    .font(.system(size: 14))
                     .bold()
-                    .font(.system(size: 16))
                 Spacer()
                 Image(systemName: "chevron.right")
                     .foregroundColor(.white)
             }
-            .padding()
+            .padding(.horizontal, 16)
+            .frame(maxWidth: .infinity)
+            .frame(height: sectionHeight)
             .background(.black.opacity(0.2))
             .cornerRadius(8)
         }
@@ -33,5 +35,5 @@ struct LMHomeDeliveryAddressSection: View {
 }
 
 #Preview {
-    LMHomeDeliveryAddressSection(address: "PeonyHomeBake Coffee Shop")
+    LMHomeDeliveryAddressSection(address: "PeonyBake Coffee Shop")
 }

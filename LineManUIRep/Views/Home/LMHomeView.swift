@@ -8,33 +8,38 @@
 import SwiftUI
 
 struct LMHomeView: View {
+    private let topPadding: CGFloat = 42
     private let defaultSpacing: CGFloat = 16
     
     var body: some View {
-        ZStack(alignment: .top) {
-            LMHeaderBackground()
-            
-            ScrollView(showsIndicators: false) {
+        ScrollView(showsIndicators: false) {
+            ZStack(alignment: .top) {
+                LMHeaderBackground()
+                
                 VStack(spacing: 16) {
-                    LMHomeProfileSection(customerName: "John Doe", promotionText: "Every Meal Start ฿49")
-                    LMHomeDeliveryAddressSection(address: "PeonyHomeBake Coffee Shop")
+                    Spacer(minLength: 16)
+                    LMHomeProfileSection(customerName: "Anak", promotionText: "Every Meal Start ฿49*")
+                    LMHomeDeliveryAddressSection(address: "PeonyBake Coffee Shop")
                     LMHomeServicesSection()
                     LMSingleDealSection()
                 }
                 .padding(.horizontal, defaultSpacing)
-                
-                Spacer(minLength: defaultSpacing)
-                
-                VStack {
-                    LMCarouselDealSection()
-                }
-                
-                VStack {
-                    LMSrollableDealSection()
-                }
-                .padding(defaultSpacing)
+                .padding(.top, topPadding)
             }
-        }
+            
+            Spacer(minLength: defaultSpacing + 8)
+            
+            VStack {
+                LMCarouselDealSection()
+            }
+            
+            VStack {
+                LMSrollableDealSection()
+            }
+            .padding(defaultSpacing)
+            
+        } // ScrollView
+        .ignoresSafeArea(edges: .top)
     }
 }
 

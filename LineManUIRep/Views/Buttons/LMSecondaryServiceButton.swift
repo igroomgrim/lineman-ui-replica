@@ -13,14 +13,14 @@ struct LMSecondaryServiceButton: View {
     let badge: String?
     
     var body: some View {
-        VStack {
+        VStack(spacing: 8) {
             Button(action: {}) {
                 VStack(alignment: .center, spacing: 8) {
                     ZStack(alignment: .topTrailing) {
                         Image(systemName: image)
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 40, height: 40)
+                            .frame(width: 48, height: 48)
                             .foregroundStyle(LMColor.gradientGreen)
                         
                         // Badge if exists
@@ -30,8 +30,8 @@ struct LMSecondaryServiceButton: View {
                                 .bold()
                                 .foregroundColor(.red)
                                 .padding(.horizontal, 6)
-                                .padding(.vertical, 2)
-                                .background(
+                                .background(.white)
+                                .overlay(
                                     RoundedRectangle(cornerRadius: 8)
                                         .fill(Color.red.opacity(0.2))
                                 )
@@ -39,19 +39,17 @@ struct LMSecondaryServiceButton: View {
                         }
                     }
                     .padding(.top, 12)
-                    
                 }
                 .frame(maxWidth: .infinity)
                 .frame(height: 80)
                 .background(Color.white)
                 .cornerRadius(12)
-                .shadow(color: .black.opacity(0.05), radius: 2, y: 2)
-                
-                
             }
+            .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
+            
             // Title
             Text(title)
-                .font(.subheadline)
+                .font(.system(size: 14))
                 .bold()
                 .foregroundColor(LMColor.fontSoftBlack)
                 .padding(.bottom, 8)
@@ -60,5 +58,12 @@ struct LMSecondaryServiceButton: View {
 }
 
 #Preview {
-    LMSecondaryServiceButton(title: "Delivery", image: "cart", badge: "New")
+    VStack(spacing: 16) {
+        HStack {
+            LMSecondaryServiceButton(title: "Delivery", image: "cart", badge: "New")
+            LMSecondaryServiceButton(title: "Delivery", image: "cart", badge: "New")
+            LMSecondaryServiceButton(title: "Delivery", image: "cart", badge: "New")
+        }
+        LMSingleDealSection()
+    }
 }

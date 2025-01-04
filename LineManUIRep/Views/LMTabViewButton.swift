@@ -27,11 +27,12 @@ struct LMTabViewButton: View {
                     .bold()
             }
             .frame(maxWidth: .infinity)
-            .foregroundColor(screenType == selectedTab ? .green : .black)
+            .foregroundColor(screenType == selectedTab ? .green : LMColor.fontSoftBlack)
         }
     }
 }
 
 #Preview {
     LMTabViewButton(screenType: .home, selectedTab: .constant(.home))
+    LMTabViewButton(screenType: .orders, selectedTab: .constant(.home))
 }
