@@ -18,16 +18,15 @@ struct ContentView: View {
             case .orders:
                 LMOrdersView()
             case .inbox:
-                Text("Inbox")
+                LMInboxView()
             case .more:
-                Text("More")
+                LMMoreView()
             }
             
             LMMainTabView(selectedTab: $selectedTab)
         }
         .safeAreaPadding(.bottom, 24)
         .ignoresSafeArea(edges: [.top, .bottom])
-        .background(.gray.opacity(0.1))
         .preferredColorScheme(.light)
     }
 }
