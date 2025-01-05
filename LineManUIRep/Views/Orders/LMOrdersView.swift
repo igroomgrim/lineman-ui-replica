@@ -24,6 +24,16 @@ enum LMOrderHistoryTab: CaseIterable {
     }
 }
 
+extension LMOrderHistoryTab {
+    var index: Int {
+        switch self {
+        case .ongoing: return 0
+        case .completed: return 1
+        case .canceledFailed: return 2
+        }
+    }
+}
+
 struct LMOrdersView: View {
     @State private var selectedTab: LMOrderHistoryTab = .completed
     
@@ -60,17 +70,29 @@ struct LMOrdersView: View {
                                     .font(.system(size: 16))
                                     .fontWeight(.bold)
                                     .foregroundColor(selectedTab == tab ? .green : .gray)
-                                
-                                // Green underline for selected tab
-                                Rectangle()
-                                    .fill(selectedTab == tab ? Color.green : Color.clear)
-                                    .frame(height: 3)
                             }
                         }
                         .frame(maxWidth: .infinity)
                     }
                 }
+                
+                // Sliding indicator
+                GeometryReader { geometry in
+                    let tabWidth = geometry.size.width / CGFloat(LMOrderHistoryTab.allCases.count)
+                    let offsetX = tabWidth * CGFloat(selectedTab.index)
+                    
+                    Rectangle()
+                        .fill(Color.green)
+                        .frame(width: tabWidth, height: 3)
+                        .offset(x: offsetX)
+                        .animation(.spring(Spring(duration: 0.2)), value: selectedTab)
+                }
+                .frame(height: 3)
+                .padding(.top, 4)
+                
                 Divider()
+                    .background(.gray)
+                    .opacity(0.1)
                     .padding(.top, -8)
             }
             
@@ -91,5 +113,4 @@ struct LMOrdersView: View {
 
 #Preview {
     LMOrdersView()
-//    ContentView()
 }
