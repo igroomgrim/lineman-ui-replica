@@ -22,19 +22,27 @@ struct LMOrderTypeFilterView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
                 LMOrderTypeFilterButton(title: "Food Delivery", isSelected: selectedFilter == .foodDelivery, action: {
-                    selectedFilter = .foodDelivery
+                    toggleFilter(.foodDelivery)
                 })
                 LMOrderTypeFilterButton(title: "Mart", isSelected: selectedFilter == .mart, action: {
-                    selectedFilter = .mart
+                    toggleFilter(.mart)
                 })
                 LMOrderTypeFilterButton(title: "Messenger", isSelected: selectedFilter == .messenger, action: {
-                    selectedFilter = .messenger
+                    toggleFilter(.messenger)
                 })
                 LMOrderTypeFilterButton(title: "Ride", isSelected: selectedFilter == .ride, action: {
-                    selectedFilter = .ride
+                    toggleFilter(.ride)
                 })
             }
             .padding(.horizontal)
+        }
+    }
+
+    private func toggleFilter(_ filter: OrderType) {
+        if selectedFilter == filter {
+            selectedFilter = .none
+        } else {
+            selectedFilter = filter
         }
     }
 }
