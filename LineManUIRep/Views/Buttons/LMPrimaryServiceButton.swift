@@ -11,9 +11,10 @@ struct LMPrimaryServiceButton: View {
     let title: String
     let image: String
     let badge: String?
+    let action: () -> Void
     
     var body: some View {
-        Button(action: {}) {
+        Button(action: action) {
             HStack(alignment: .center) {
                 Spacer()
                     
@@ -60,10 +61,10 @@ struct LMPrimaryServiceButton: View {
 }
 
 #Preview {
-    LMPrimaryServiceButton(title: "Food", image: "fork.knife", badge: "Discount 100฿")
+    LMPrimaryServiceButton(title: "Food", image: "fork.knife", badge: "Discount 100฿", action: {})
     
     HStack {
-        LMPrimaryServiceButton(title: "Food", image: "popcorn", badge: "ใหม่")
-        LMPrimaryServiceButton(title: "Ride", image: "moped", badge: "New")
+        LMPrimaryServiceButton(title: "Food", image: "popcorn", badge: "ใหม่",  action: {})
+        LMPrimaryServiceButton(title: "Ride", image: "moped", badge: "New", action: {})
     }
 }
