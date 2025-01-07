@@ -11,7 +11,7 @@ import SwiftUI
 struct LineManUIRepApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LMSplashScreenView()
         }
     }
 }
