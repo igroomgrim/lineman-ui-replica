@@ -17,7 +17,7 @@ struct LMFoodView: View {
             })
             
             ScrollView {
-                LMFoodSearchBar(text: .constant("🐔 KFC ใหม่!!! ชุดข้าวร้านลุง ฿129 โค้ดลดเพิ่ม ฿120 🔥"), onTap: {})
+                LMFoodSearchBar(text: .constant("🐔 KFC ใหม่!!! ชุดข้าวร้านลุง ฿129 โค้ดลดเพิ่ม ฿120x 🔥"), onTap: {})
                 
                 LMFoodPopularMenusSection()
                     .padding(.vertical)
