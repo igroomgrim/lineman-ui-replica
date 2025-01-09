@@ -19,6 +19,13 @@ struct LMFoodView: View {
             ScrollView {
                 LMFoodSearchBar(text: .constant("🐔 KFC ใหม่!!! ชุดข้าวร้านลุง ฿129 โค้ดลดเพิ่ม ฿120x 🔥"), onTap: {})
                 
+                HStack {
+                    LMPromotionBannerSizeMButton(action: {})
+                    LMPromotionBannerSizeMButton(action: {})
+                }
+                .padding(.top, 16)
+                .padding(.horizontal, 16)
+                
                 LMFoodPopularMenusSection()
                     .padding(.vertical)
             }
