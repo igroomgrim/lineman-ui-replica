@@ -7,17 +7,37 @@
 
 import SwiftUI
 
+enum LMCoreServiceBadgeType {
+    case normal
+    case inverted
+}
+
 struct LMCoreServiceBadge: View {
+    let type: LMCoreServiceBadgeType
     let text: String
     let isBlinking: Bool
     @State private var isBlinkingState: Bool = false
     
-    init(text: String, isBlinking: Bool = false) {
+    init(text: String, type: LMCoreServiceBadgeType = .normal, isBlinking: Bool = false) {
         self.text = text
+        self.type = type
         self.isBlinking = isBlinking
     }
-    
+
     var body: some View {
+        badgeContent
+    }
+
+    private var badgeContent: some View {
+        switch type {
+        case .normal:
+            return normalBadge
+        case .inverted:
+            return invertedBadge
+        }
+    }
+
+    private var normalBadge: some View {
         Text(text)
             .font(.caption2)
             .fontWeight(.bold)
@@ -32,11 +52,25 @@ struct LMCoreServiceBadge: View {
                 }
             }
     }
+
+    private var invertedBadge: some View {
+        Text(text)
+            .font(.system(size: 10))
+            .fontWeight(.bold)
+            .foregroundColor(LMTheme.Colors.red01)
+            .padding(.horizontal, 6)
+            .padding(.vertical, 2)
+            .background(.white)
+            .overlay(
+                RoundedRectangle(cornerRadius: LMTheme.CornerRadius.medium)
+                    .fill(LMTheme.Colors.red02)
+            )
+    }
 }
 
 #Preview {
     VStack(spacing: LMTheme.Spacing.medium) {
-        LMCoreServiceBadge(text: "ลด ฿100*", isBlinking: true)
-        LMCoreServiceBadge(text: "ใหม่")
+        LMCoreServiceBadge(text: "ลด ฿100*", type: .normal, isBlinking: true)
+        LMCoreServiceBadge(text: "ส่งฟรี", type: .inverted)
     }
 }
