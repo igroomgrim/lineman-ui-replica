@@ -8,8 +8,9 @@
 import SwiftUI
 
 enum LMCoreServiceBadgeType {
-    case normal
-    case inverted
+    case type1
+    case type2
+    case type3
 }
 
 struct LMCoreServiceBadge: View {
@@ -17,8 +18,9 @@ struct LMCoreServiceBadge: View {
     let text: String
     let isBlinking: Bool
     @State private var isBlinkingState: Bool = false
+    @State private var timer: Timer?
     
-    init(text: String, type: LMCoreServiceBadgeType = .normal, isBlinking: Bool = false) {
+    init(text: String, type: LMCoreServiceBadgeType, isBlinking: Bool = false) {
         self.text = text
         self.type = type
         self.isBlinking = isBlinking
@@ -29,31 +31,51 @@ struct LMCoreServiceBadge: View {
     }
 
     private var badgeContent: some View {
-        switch type {
-        case .normal:
-            return normalBadge
-        case .inverted:
-            return invertedBadge
+        Group {
+            switch type {
+            case .type1:
+                type1Badge
+            case .type2:
+                type2Badge
+            case .type3:
+                type3Badge
+            }
         }
     }
 
-    private var normalBadge: some View {
+    private var type1Badge: some View {
         Text(text)
             .font(.caption2)
             .fontWeight(.bold)
             .foregroundColor(isBlinking ? (isBlinkingState ? .white : LMTheme.Colors.red01) : .white)
             .padding(.horizontal, 6)
             .background(LMTheme.Colors.red01)
-            .cornerRadius(LMTheme.CornerRadius.medium)
-            .animation(.easeOut(duration: 1).repeatForever(), value: isBlinkingState)
+            .cornerRadius(LMTheme.CornerRadius.radius8)
             .onAppear {
-                if isBlinking {
+                guard isBlinking else { return }
+                
+                timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
                     isBlinkingState.toggle()
                 }
+                timer?.fire()
+            }
+            .onDisappear {
+                timer?.invalidate()
+                timer = nil
             }
     }
 
-    private var invertedBadge: some View {
+    private var type2Badge: some View {
+        Text(text)
+            .font(.caption2)
+            .fontWeight(.bold)
+            .foregroundColor(LMTheme.Colors.red01)
+            .padding(.horizontal, 6)
+            .background(LMTheme.Colors.red02)
+            .cornerRadius(LMTheme.CornerRadius.radius8)
+    }
+
+    private var type3Badge: some View {
         Text(text)
             .font(.system(size: 10))
             .fontWeight(.bold)
@@ -62,15 +84,16 @@ struct LMCoreServiceBadge: View {
             .padding(.vertical, 2)
             .background(.white)
             .overlay(
-                RoundedRectangle(cornerRadius: LMTheme.CornerRadius.medium)
+                RoundedRectangle(cornerRadius: LMTheme.CornerRadius.radius8)
                     .fill(LMTheme.Colors.red02)
             )
     }
 }
 
 #Preview {
-    VStack(spacing: LMTheme.Spacing.medium) {
-        LMCoreServiceBadge(text: "ลด ฿100*", type: .normal, isBlinking: true)
-        LMCoreServiceBadge(text: "ส่งฟรี", type: .inverted)
+    VStack(spacing: LMTheme.Spacing.spacing16) {
+        LMCoreServiceBadge(text: "ลด ฿100*", type: .type1, isBlinking: true)
+        LMCoreServiceBadge(text: "SALE", type: .type2)
+        LMCoreServiceBadge(text: "ส่งฟรี", type: .type3)
     }
 }

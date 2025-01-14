@@ -22,11 +22,13 @@ struct LMStandaloneAdvertiseButton: View {
             .frame(height: 94)
             .frame(maxWidth: .infinity)
         }
-        .clipShape(RoundedRectangle(cornerRadius: LMTheme.CornerRadius.medium))
-        .padding(.horizontal, LMTheme.Spacing.medium)
+        .clipShape(RoundedRectangle(cornerRadius: LMTheme.CornerRadius.radius8))
     }
 }
 
 #Preview {
-    LMStandaloneAdvertiseButton(action: {})
+    VStack() {
+        LMStandaloneAdvertiseButton(action: {})
+    }
+    .padding(.horizontal, LMTheme.Spacing.spacing16)
 }

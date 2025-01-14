@@ -11,6 +11,7 @@ struct LMSecondaryServiceButton: View {
     let title: String
     let image: String
     let badge: String?
+    let action: () -> Void
     
     var body: some View {
         VStack(spacing: 8) {
@@ -60,10 +61,13 @@ struct LMSecondaryServiceButton: View {
 #Preview {
     VStack(spacing: 16) {
         HStack {
-            LMSecondaryServiceButton(title: "Delivery", image: "cart", badge: "New")
-            LMSecondaryServiceButton(title: "Delivery", image: "cart", badge: "New")
-            LMSecondaryServiceButton(title: "Delivery", image: "cart", badge: "New")
+            LMSecondaryServiceButton(title: "Delivery", image: "cart", badge: "New", action: {})
+            LMSecondaryServiceButton(title: "Delivery", image: "cart", badge: "New", action: {})
         }
-        LMSingleDealSection()
+        HStack {
+            LMSecondaryServiceButton(title: "Delivery", image: "cart", badge: "New", action: {})
+            LMSecondaryServiceButton(title: "Delivery", image: "cart", badge: "New", action: {})
+            LMSecondaryServiceButton(title: "Delivery", image: "cart", badge: "New", action: {})
+        }
     }
 }

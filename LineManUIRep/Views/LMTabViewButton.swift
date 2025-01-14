@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct LMTabViewButton: View {
-    let screenType: ScreenType
-    @Binding var selectedTab: ScreenType
+    let screenType: LMScreenType
+    @Binding var selectedTab: LMScreenType
     
     var body: some View {
         Button(action: {

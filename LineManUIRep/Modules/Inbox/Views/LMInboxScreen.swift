@@ -1,5 +1,5 @@
 //
-//  LMMoreView.swift
+//  LMInboxScreen.swift
 //  LineManUIRep
 //
 //  Created by Anak Mirasing on 5/1/2568 BE.
@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct LMMoreView: View {
+struct LMInboxScreen: View {
     var body: some View {
         ZStack {
-            Text("More")
+            Text("Inbox")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LMMainTabView: View {
-    @Binding var selectedTab: ScreenType
+    @Binding var selectedTab: LMScreenType
 
     var body: some View {
         VStack(alignment: .center, spacing: 0) {

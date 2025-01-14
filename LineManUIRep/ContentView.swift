@@ -8,21 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedTab: ScreenType = .home
+    @State private var selectedTab: LMScreenType = .home
     
     var body: some View {
         VStack {
-            switch selectedTab {
-            case .home:
-                LMHomeView()
-            case .orders:
-                LMOrdersView()
-            case .inbox:
-                LMInboxView()
-            case .more:
-                LMMoreView()
-            }
-            
             LMMainTabView(selectedTab: $selectedTab)
         }
         .safeAreaPadding(.bottom, 24)

@@ -1,5 +1,5 @@
 //
-//  LMOrdersView.swift
+//  LMOrdersScreen.swift
 //  LineManUIRep
 //
 //  Created by Anak Mirasing on 4/1/2568 BE.
@@ -34,7 +34,7 @@ extension LMOrderHistoryTab {
     }
 }
 
-struct LMOrdersView: View {
+struct LMOrdersScreen: View {
     @State private var selectedTab: LMOrderHistoryTab = .completed
     
     var body: some View {
@@ -112,5 +112,5 @@ struct LMOrdersView: View {
 }
 
 #Preview {
-    LMOrdersView()
+    LMOrdersScreen()
 }

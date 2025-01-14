@@ -5,7 +5,7 @@
 //  Created by Anak Mirasing on 1/1/2568 BE.
 //
 
-enum ScreenType: Int {
+enum LMScreenType: Int {
     case home
     case orders
     case inbox

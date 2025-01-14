@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LMHomeDeliveryAddressSection: View {
-    private let sectionHeight: CGFloat = 52
+    private let sectionHeight: CGFloat = 48
     let address: String
     
     var body: some View {
