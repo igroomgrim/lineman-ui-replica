@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct LMHomeServiceSection: View {
-    @Binding var serviceState: LMHomeServiceState
+    @EnvironmentObject var homeServiceCurrentState: LMHomeServiceCurrentState
 
     var body: some View {
-        switch serviceState {
+        switch homeServiceCurrentState.serviceState {
         case .basic:
             VStack(spacing: LMTheme.Spacing.spacing16) {
                 LMPrimaryServiceButton(
@@ -67,7 +67,7 @@ struct LMHomeServiceSection: View {
 }
 
 #Preview {
-    LMHomeServiceSection(serviceState: .constant(.basic))
+    LMHomeServiceSection()
     Spacer()
-    LMHomeServiceSection(serviceState: .constant(.withDelivery))
+    LMHomeServiceSection()
 }

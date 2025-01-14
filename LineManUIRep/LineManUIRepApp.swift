@@ -11,7 +11,7 @@ import SwiftUI
 struct LineManUIRepApp: App {
     var body: some Scene {
         WindowGroup {
-            LMTabCoordinatorView(selectedTab: .constant(.home))
+            LMAppCoordinatorView(appCoordinator: LMAppCoordinator())
                 .preferredColorScheme(.light)
         }
     }
