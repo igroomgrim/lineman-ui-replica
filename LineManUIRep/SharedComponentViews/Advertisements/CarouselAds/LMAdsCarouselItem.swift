@@ -1,5 +1,5 @@
 //
-//  LMAdsButton.swift
+//  LMAdsCarouselItem.swift
 //  LineManUIRep
 //
 //  Created by Anak Mirasing on 13/1/2568 BE.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LMAdsButton: View {
+struct LMAdsCarouselItem: View {
     let action: () -> Void
     
     var body: some View {
@@ -32,5 +32,5 @@ struct LMAdsButton: View {
 }
 
 #Preview {
-    LMAdsButton(action: {})
+    LMAdsCarouselItem(action: {})
 }

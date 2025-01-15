@@ -1,5 +1,5 @@
 //
-//  LMStandaloneAdvertiseButton.swift
+//  LMStandaloneAdsSection.swift
 //  LineManUIRep
 //
 //  Created by Anak Mirasing on 13/1/2568 BE.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LMStandaloneAdvertiseButton: View {
+struct LMStandaloneAdsSection: View {
     let action: () -> Void
     
     var body: some View {
@@ -28,7 +28,7 @@ struct LMStandaloneAdvertiseButton: View {
 
 #Preview {
     VStack() {
-        LMStandaloneAdvertiseButton(action: {})
+        LMStandaloneAdsSection(action: {})
     }
     .padding(.horizontal, LMTheme.Spacing.spacing16)
 }

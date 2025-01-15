@@ -9,7 +9,8 @@ import SwiftUI
 
 struct LMHomeScreen: View {
     @StateObject var homeServiceCurrentState = LMHomeServiceCurrentState()
-
+    @StateObject var viewModel = LMHomeScreenViewModel()
+    
     var body: some View {
         GeometryReader { geometry in
             let topInsetHeight = geometry.safeAreaInsets.top + LMTheme.Padding.padding24
@@ -32,16 +33,16 @@ struct LMHomeScreen: View {
                 
                 if homeServiceCurrentState.serviceState == .withDelivery {
                     VStack {
-                        LMStandaloneAdvertiseButton(action: {})
+                        LMStandaloneAdsSection(action: {})
                     }
                     .padding(.horizontal, LMTheme.Padding.padding16)
                     .padding(.bottom, LMTheme.Padding.padding16)
                 }
                 
                 // Part 2
-                LMAdsCarousel()
+                LMAdsCarouselSection()
                 Spacer(minLength: LMTheme.Spacing.spacing20)
-
+                
                 // Part 3 - For .withDelivery
                 if homeServiceCurrentState.serviceState == .withDelivery {
                     LMScrollableAdsSection()
@@ -56,6 +57,23 @@ struct LMHomeScreen: View {
         }
         .onAppear {
             homeServiceCurrentState.serviceState = .withDelivery
+        }
+    }
+    
+    private func loadAds() {
+        viewModel.loadAds()
+    }
+    
+    private var dynamicLayoutSection: some View {
+        ForEach(viewModel.adsList) { ads in
+            switch ads.layoutType {
+            case .standaloneAds:
+                LMStandaloneAdsSection(action: {})
+            case .carouselAds:
+                LMAdsCarouselSection()
+            case .scrollableAds:
+                LMScrollableAdsSection()
+            }
         }
     }
 }

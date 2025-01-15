@@ -1,5 +1,5 @@
 //
-//  LMAdsCarousel.swift
+//  LMAdsCarouselSection.swift
 //  LineManUIRep
 //
 //  Created by Anak Mirasing on 13/1/2568 BE.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct LMAdsCarousel: View {
+struct LMAdsCarouselSection: View {
     private let adsButtons = [
-        LMAdsButton(action: {}),
-        LMAdsButton(action: {}),
-        LMAdsButton(action: {})
+        LMAdsCarouselItem(action: {}),
+        LMAdsCarouselItem(action: {}),
+        LMAdsCarouselItem(action: {})
     ]
     private let buttonWidth: CGFloat = UIScreen.main.bounds.width - (LMTheme.Spacing.spacing16 * 2)
     
-    @State var tempAdsButtons: [[LMAdsButton]] = []
+    @State var tempAdsButtons: [[LMAdsCarouselItem]] = []
     @State var scrollPosition: Int?
     
     var body: some View {
@@ -56,5 +56,5 @@ struct LMAdsCarousel: View {
 }
 
 #Preview {
-    LMAdsCarousel()
+    LMAdsCarouselSection()
 }
