@@ -33,7 +33,7 @@ struct LMAppCoordinatorView: View {
         TabView(selection: $appCoordinator.selectedTab) {
             // Home Tab
             NavigationStack(path: $appCoordinator.homeCoordinator.path) {
-                LMHomeScreen()
+                LMHomeContentView().environmentObject(appCoordinator.homeCoordinator)
             }
             .tabItem {
                 LMTabItem(screenType: .home,

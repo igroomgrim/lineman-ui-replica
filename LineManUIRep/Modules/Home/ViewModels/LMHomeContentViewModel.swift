@@ -1,5 +1,5 @@
 //
-//  LMHomeScreenViewModel.swift
+//  LMHomeContentViewModel.swift
 //  LineManUIRep
 //
 //  Created by Anak Mirasing on 14/1/2568 BE.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class LMHomeScreenViewModel: ObservableObject {
+class LMHomeContentViewModel: ObservableObject {
     @Published var adsList: [LMHomeAds] = []
 
     func loadAds() {

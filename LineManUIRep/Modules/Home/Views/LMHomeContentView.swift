@@ -1,5 +1,5 @@
 //
-//  LMHomeScreen.swift
+//  LMHomeContentView.swift
 //  LineManUIRep
 //
 //  Created by Anak Mirasing on 1/1/2568 BE.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct LMHomeScreen: View {
+struct LMHomeContentView: View {
     @StateObject var homeServiceCurrentState = LMHomeServiceCurrentState()
-    @StateObject var viewModel = LMHomeScreenViewModel()
+    @StateObject var viewModel = LMHomeContentViewModel()
     
     var body: some View {
         GeometryReader { geometry in
@@ -79,5 +79,5 @@ struct LMHomeScreen: View {
 }
 
 #Preview {
-    LMHomeScreen()
+    LMHomeContentView()
 }
