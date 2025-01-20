@@ -1,5 +1,5 @@
 //
-//  LMHomeServiceSection.swift
+//  LMHomeServiceSectionView.swift
 //  LineManUIRep
 //
 //  Created by Anak Mirasing on 13/1/2568 BE.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LMHomeServiceSection: View {
+struct LMHomeServiceSectionView: View {
     @EnvironmentObject var homeServiceCurrentState: LMHomeServiceCurrentState
 
     var body: some View {

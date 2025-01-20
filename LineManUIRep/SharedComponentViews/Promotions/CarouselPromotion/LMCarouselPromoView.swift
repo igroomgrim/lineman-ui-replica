@@ -1,5 +1,5 @@
 //
-//  LMAdsCarouselItem.swift
+//  LMCarouselPromoView.swift
 //  LineManUIRep
 //
 //  Created by Anak Mirasing on 13/1/2568 BE.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LMAdsCarouselItem: View {
+struct LMCarouselPromoView: View {
     let action: () -> Void
     
     var body: some View {

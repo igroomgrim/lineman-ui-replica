@@ -1,5 +1,5 @@
 //
-//  LMScrollableAdsSection.swift
+//  SquarePromoSectionView.swift
 //  LineManUIRep
 //
 //  Created by Anak Mirasing on 14/1/2568 BE.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LMScrollableAdsSection: View {
+struct SquarePromoSectionView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: LMTheme.Spacing.spacing16) {
             Text("เก็บโค้ดลดสูงสุด ฿100*")
@@ -31,5 +31,5 @@ struct LMScrollableAdsSection: View {
 }
 
 #Preview {
-    LMScrollableAdsSection()
+    SquarePromoSectionView()
 }
