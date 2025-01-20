@@ -59,23 +59,6 @@ struct LMHomeContentView: View {
             homeServiceCurrentState.serviceState = .withDelivery
         }
     }
-    
-    private func loadAds() {
-        viewModel.loadAds()
-    }
-    
-//    private var dynamicLayoutSection: some View {
-//        ForEach(viewModel.adsList) { ads in
-//            switch ads.layoutType {
-//            case .standaloneAds:
-//                LMStandalonePromoSectionView(action: {})
-//            case .carouselAds:
-//                LMCarouselPromoSectionView()
-//            case .scrollableAds:
-//                LMSquarePromoSectionView()
-//            }
-//        }
-//    }
 }
 
 #Preview {
