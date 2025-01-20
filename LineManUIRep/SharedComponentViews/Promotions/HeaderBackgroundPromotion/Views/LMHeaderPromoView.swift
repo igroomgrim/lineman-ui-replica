@@ -1,5 +1,5 @@
 //
-//  LMAdsHeaderBackgroundView.swift
+//  LMHeaderPromoView.swift
 //  LineManUIRep
 //
 //  Created by Anak Mirasing on 13/1/2568 BE.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LMAdsHeaderBackgroundView: View {
+struct LMHeaderPromoView: View {
     private let height: CGFloat = UIScreen.main.bounds.height * 0.368 // 36.8% of screen height
     
     var body: some View {
@@ -38,5 +38,5 @@ private struct RoundedCorner: Shape {
 }
 
 #Preview {
-    LMAdsHeaderBackgroundView()
+    LMHeaderPromoView()
 }

@@ -17,13 +17,13 @@ struct LMHomeContentView: View {
             
             ScrollView {
                 ZStack(alignment: .top, content: {
-                    LMAdsHeaderBackground()
+                    LMHeaderPromoView()
                     
                     // Part 1
                     VStack(spacing: LMTheme.Spacing.spacing16) {
                         LMHomeProfileSection(customerName: "Anak", promotionText: "Every Meal Start ฿49*")
                         LMHomeDeliveryAddressSection(address: "PeonyBake Coffee Shop")
-                        LMHomeServiceSection()
+                        LMHomeServiceSectionView()
                     }
                     .padding(.horizontal, LMTheme.Padding.padding16)
                     .padding(.top, topInsetHeight)
@@ -33,19 +33,19 @@ struct LMHomeContentView: View {
                 
                 if homeServiceCurrentState.serviceState == .withDelivery {
                     VStack {
-                        LMStandaloneAdsSection(action: {})
+                        LMStandalonePromoSectionView(action: {})
                     }
                     .padding(.horizontal, LMTheme.Padding.padding16)
                     .padding(.bottom, LMTheme.Padding.padding16)
                 }
                 
                 // Part 2
-                LMAdsCarouselSection()
+                LMCarouselPromoSectionView()
                 Spacer(minLength: LMTheme.Spacing.spacing20)
                 
                 // Part 3 - For .withDelivery
                 if homeServiceCurrentState.serviceState == .withDelivery {
-                    LMScrollableAdsSection()
+                    LMSquarePromoSectionView()
                 }
                 
                 Spacer(minLength: LMTheme.Spacing.spacing24)
@@ -68,11 +68,11 @@ struct LMHomeContentView: View {
         ForEach(viewModel.adsList) { ads in
             switch ads.layoutType {
             case .standaloneAds:
-                LMStandaloneAdsSection(action: {})
+                LMStandalonePromoSectionView(action: {})
             case .carouselAds:
-                LMAdsCarouselSection()
+                LMCarouselPromoSectionView()
             case .scrollableAds:
-                LMScrollableAdsSection()
+                LMSquarePromoSectionView()
             }
         }
     }

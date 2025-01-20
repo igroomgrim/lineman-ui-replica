@@ -67,7 +67,7 @@ struct LMHomeServiceSectionView: View {
 }
 
 #Preview {
-    LMHomeServiceSection()
+    LMHomeServiceSectionView()
     Spacer()
-    LMHomeServiceSection()
+    LMHomeServiceSectionView()
 }

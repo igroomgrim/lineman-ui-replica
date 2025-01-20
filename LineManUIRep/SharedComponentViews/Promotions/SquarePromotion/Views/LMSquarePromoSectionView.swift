@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SquarePromoSectionView: View {
+struct LMSquarePromoSectionView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: LMTheme.Spacing.spacing16) {
             Text("เก็บโค้ดลดสูงสุด ฿100*")
@@ -31,5 +31,5 @@ struct SquarePromoSectionView: View {
 }
 
 #Preview {
-    SquarePromoSectionView()
+    LMSquarePromoSectionView()
 }

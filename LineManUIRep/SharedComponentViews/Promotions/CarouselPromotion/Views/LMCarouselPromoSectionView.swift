@@ -9,13 +9,13 @@ import SwiftUI
 
 struct LMCarouselPromoSectionView: View {
     private let adsButtons = [
-        LMAdsCarouselItem(action: {}),
-        LMAdsCarouselItem(action: {}),
-        LMAdsCarouselItem(action: {})
+        LMCarouselPromoView(action: {}),
+        LMCarouselPromoView(action: {}),
+        LMCarouselPromoView(action: {})
     ]
     private let buttonWidth: CGFloat = UIScreen.main.bounds.width - (LMTheme.Spacing.spacing16 * 2)
     
-    @State var tempAdsButtons: [[LMAdsCarouselItem]] = []
+    @State var tempAdsButtons: [[LMCarouselPromoView]] = []
     @State var scrollPosition: Int?
     
     var body: some View {
@@ -56,5 +56,5 @@ struct LMCarouselPromoSectionView: View {
 }
 
 #Preview {
-    LMAdsCarouselSection()
+    LMCarouselPromoSectionView()
 }

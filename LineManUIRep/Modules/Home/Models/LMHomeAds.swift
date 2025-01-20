@@ -61,10 +61,22 @@ struct LMHomeAds: Codable, Identifiable {
     "trackingId": "campaign_123"
 }
 
-// LMHomeAds
-{
-    "id": "123",
-    "layoutType": "carousel_ads",
-    "items": [LMHomeAdsItem]
-}
+// LMHomeAds - get from backend and draw in HomeView automatically
+[
+    {
+        "id": "123",
+        "layoutType": "carousel_ads",
+        "items": [LMHomeAdsItem]
+    },
+    {
+        "id": "123",
+        "layoutType": "scrollable_ads",
+        "items": [LMHomeAdsItem]
+    },
+    {
+        "id": "123",
+        "layoutType": "standalone_ads",
+        "items": [LMHomeAdsItem]
+    }
+]
 */
