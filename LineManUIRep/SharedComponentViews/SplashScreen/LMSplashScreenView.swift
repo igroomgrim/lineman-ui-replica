@@ -12,7 +12,7 @@ struct LMSplashScreenView: View {
     
     var body: some View {
         if isActive {
-            ContentView()
+            // TODO: Show LMCoordinator.home
         } else {
             ZStack {
                 LMColor.gradientGreen.ignoresSafeArea()
@@ -25,11 +25,7 @@ struct LMSplashScreenView: View {
                 }
             }
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    withAnimation {
-                        self.isActive.toggle()
-                    }
-                }
+                // TODO: Fetch pre-fetch data from backend
             }
         }
     }
