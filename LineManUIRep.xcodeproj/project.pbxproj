@@ -10,9 +10,22 @@
 		F3D665792D252C2B00240ABA /* LineManUIRep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LineManUIRep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F3FCC1C32D3E99C300C57CC5 /* Exceptions for "LineManUIRep" folder in "LineManUIRep" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = F3D665782D252C2B00240ABA /* LineManUIRep */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F3D6657B2D252C2B00240ABA /* LineManUIRep */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F3FCC1C32D3E99C300C57CC5 /* Exceptions for "LineManUIRep" folder in "LineManUIRep" target */,
+			);
 			path = LineManUIRep;
 			sourceTree = "<group>";
 		};
@@ -255,6 +268,7 @@
 				DEVELOPMENT_TEAM = 7W5MA8FGH5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LineManUIRep/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -285,6 +299,7 @@
 				DEVELOPMENT_TEAM = 7W5MA8FGH5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LineManUIRep/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
