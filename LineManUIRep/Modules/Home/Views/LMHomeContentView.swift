@@ -64,18 +64,18 @@ struct LMHomeContentView: View {
         viewModel.loadAds()
     }
     
-    private var dynamicLayoutSection: some View {
-        ForEach(viewModel.adsList) { ads in
-            switch ads.layoutType {
-            case .standaloneAds:
-                LMStandalonePromoSectionView(action: {})
-            case .carouselAds:
-                LMCarouselPromoSectionView()
-            case .scrollableAds:
-                LMSquarePromoSectionView()
-            }
-        }
-    }
+//    private var dynamicLayoutSection: some View {
+//        ForEach(viewModel.adsList) { ads in
+//            switch ads.layoutType {
+//            case .standaloneAds:
+//                LMStandalonePromoSectionView(action: {})
+//            case .carouselAds:
+//                LMCarouselPromoSectionView()
+//            case .scrollableAds:
+//                LMSquarePromoSectionView()
+//            }
+//        }
+//    }
 }
 
 #Preview {

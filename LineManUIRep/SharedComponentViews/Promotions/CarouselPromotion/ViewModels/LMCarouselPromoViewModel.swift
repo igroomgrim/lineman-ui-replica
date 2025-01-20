@@ -8,9 +8,5 @@
 import SwiftUI
 
 class LMCarouselPromoViewModel: ObservableObject {
-    private let adsItem: LMHomeAdsItem
     
-    init(adsItem: LMHomeAdsItem) {
-        self.adsItem = adsItem
-    }
 }
