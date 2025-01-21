@@ -22,7 +22,7 @@ struct LMHomeContentView: View {
                     // Part 1
                     VStack(spacing: LMTheme.Spacing.spacing16) {
                         LMHomeProfileSectionView(customerName: "Anak", promotionText: "Every Meal Start ฿49*", promotionId: "xx", onPromotionTapped: { _ in }, onFavoriteTapped: {})
-                        LMHomeDeliveryAddressSection(address: "PeonyBake Coffee Shop")
+                        LMHomeDeliveryAddressSectionView(address: "PeonyBake Coffee Shop", action: {})
                         LMHomeServiceSectionView()
                     }
                     .padding(.horizontal, LMTheme.Padding.padding16)
