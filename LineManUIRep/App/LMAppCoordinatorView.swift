@@ -18,11 +18,10 @@ struct LMTabItem: View {
                 .frame(height: 18)
             
             Text(screenType.title)
-                .font(.caption)
-                .bold()
+                .font(.lmFont(type: .regular, size: 18))
         }
         .frame(maxWidth: .infinity)
-        .foregroundColor(isSelected ? LMTheme.Colors.green01 : LMTheme.Colors.textPrimary)
+        .foregroundColor(isSelected ? .blue : LMTheme.Colors.textPrimary)
     }
 }
 
@@ -30,55 +29,33 @@ struct LMAppCoordinatorView: View {
     @ObservedObject var appCoordinator: LMAppCoordinator
     
     var body: some View {
-        TabView(selection: $appCoordinator.selectedTab) {
-            // Home Tab
-            NavigationStack(path: $appCoordinator.homeCoordinator.path) {
-                LMHomeContentView().environmentObject(appCoordinator.homeCoordinator)
+        ZStack {
+            Group {
+                switch appCoordinator.selectedTab {
+                case .home:
+                    NavigationStack(path: $appCoordinator.homeCoordinator.path) {
+                        LMHomeContentView().environmentObject(appCoordinator.homeCoordinator)
+                    }
+                case .orders:
+                    NavigationStack(path: $appCoordinator.ordersCoordinator.path) {
+                        LMOrdersScreen()
+                    }
+                case .inbox:
+                    NavigationStack(path: $appCoordinator.inboxCoordinator.path) {
+                        LMInboxScreen()
+                    }
+                case .more:
+                    NavigationStack(path: $appCoordinator.moreCoordinator.path) {
+                        LMMoreScreen()
+                    }
+                }
             }
-            .tabItem {
-                LMTabItem(screenType: .home,
-                          isSelected: appCoordinator.selectedTab == .home)
-            }
-            .tag(LMScreenType.home)
-
-            // Orders Tab
-            NavigationStack(path: $appCoordinator.ordersCoordinator.path) {
-                LMOrdersScreen()
-            }
-            .tabItem {
-                LMTabItem(screenType: .orders,
-                          isSelected: appCoordinator.selectedTab == .orders)
-            }
-            .tag(LMScreenType.orders)
-
-            // Inbox Tab
-            NavigationStack(path: $appCoordinator.inboxCoordinator.path) {
-                LMInboxScreen()
-            }
-            .tabItem {
-                LMTabItem(screenType: .inbox,
-                          isSelected: appCoordinator.selectedTab == .inbox)
-            }
-            .tag(LMScreenType.inbox)
-
-            // More Tab
-            NavigationStack(path: $appCoordinator.moreCoordinator.path) {
-                LMMoreScreen()
-            }
-            .tabItem {
-                LMTabItem(screenType: .more,
-                          isSelected: appCoordinator.selectedTab == .more)
-            }
-            .tag(LMScreenType.more)
+            
+            
         }
-        .tint(LMTheme.Colors.green01)
-        .onAppear {
-            let appearance = UITabBarAppearance()
-            appearance.backgroundColor = .white
-            UITabBar.appearance().standardAppearance = appearance
-            UITabBar.appearance().scrollEdgeAppearance = appearance
+        .safeAreaInset(edge: .bottom) {
+            LMMainTabView(selectedTab: $appCoordinator.selectedTab)
         }
-        .environmentObject(appCoordinator)
     }
 }
 

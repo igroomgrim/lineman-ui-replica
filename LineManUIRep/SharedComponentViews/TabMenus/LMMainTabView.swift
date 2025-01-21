@@ -20,8 +20,7 @@ struct LMMainTabView: View {
                 LMTabViewButton(screenType: .inbox, selectedTab: $selectedTab)
                 LMTabViewButton(screenType: .more, selectedTab: $selectedTab)
             }
-            .padding(.vertical, 8)
-            .background(Color.white)
+            .padding(.top, LMTheme.Padding.padding8)
         }
     }
 }

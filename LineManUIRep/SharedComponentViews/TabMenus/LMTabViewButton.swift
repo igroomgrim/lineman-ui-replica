@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LMTabViewButton: View {
+    private let imageHeight: CGFloat = 16
     let screenType: LMScreenType
     @Binding var selectedTab: LMScreenType
     
@@ -17,14 +18,12 @@ struct LMTabViewButton: View {
                 selectedTab = screenType
             }
         }) {
-            VStack(spacing: 6) {
+            VStack(spacing: LMTheme.Spacing.spacing4) {
                 Image(systemName: screenType.iconName)
-                    .font(.system(size: 18))
-                    .frame(height: 18)
-                
+                    .font(.lmFont(type: .regular, size: imageHeight))
+                    .frame(height: imageHeight)
                 Text(screenType.title)
-                    .font(.caption)
-                    .bold()
+                    .font(.lmFont(type: .bold, size: 12))
             }
             .frame(maxWidth: .infinity)
             .foregroundColor(screenType == selectedTab ? .green : LMColor.fontSoftBlack)
