@@ -45,8 +45,7 @@ struct LMCoreServiceBadge: View {
 
     private var type1Badge: some View {
         Text(text)
-            .font(.caption2)
-            .fontWeight(.bold)
+            .font(.lmFont(type: .bold, size: 12))
             .foregroundColor(isBlinking ? (isBlinkingState ? .white : LMTheme.Colors.red01) : .white)
             .padding(.horizontal, 6)
             .background(LMTheme.Colors.red01)
@@ -67,8 +66,7 @@ struct LMCoreServiceBadge: View {
 
     private var type2Badge: some View {
         Text(text)
-            .font(.caption2)
-            .fontWeight(.bold)
+            .font(.lmFont(type: .bold, size: 12))
             .foregroundColor(LMTheme.Colors.red01)
             .padding(.horizontal, 6)
             .background(LMTheme.Colors.red02)
@@ -77,8 +75,7 @@ struct LMCoreServiceBadge: View {
 
     private var type3Badge: some View {
         Text(text)
-            .font(.system(size: 10))
-            .fontWeight(.bold)
+            .font(.lmFont(type: .bold, size: 10))
             .foregroundColor(LMTheme.Colors.red01)
             .padding(.horizontal, 6)
             .padding(.vertical, 2)

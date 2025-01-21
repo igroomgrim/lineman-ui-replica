@@ -31,8 +31,7 @@ struct LMPrimaryServiceButton: View {
                 
                 // Left side - Title
                 Text(title)
-                    .font(.system(size: 14))
-                    .bold()
+                    .font(.lmFont(type: .bold, size: 14))
                     .foregroundColor(LMTheme.Colors.textPrimary)
                     .layoutPriority(1)
                 
@@ -66,30 +65,33 @@ struct LMPrimaryServiceButton: View {
     }
 }
 
-//#Preview {
-//    LMPrimaryServiceButton(
-//        title: "Food",
-//        image: "fork.knife",
-//        badgeTitle: "Discount 100฿",
-//        isBadgeBlinking: true,
-//        action: {}
-//    )
-//    
-//    HStack {
-//        LMPrimaryServiceButton(
-//            title: "Food",
-//            image: "popcorn",
-//            badgeTitle: "ใหม่",
-//            isBadgeBlinking: true,
-//            action: {}
-//        )
-//        
-//        LMPrimaryServiceButton(
-//            title: "Food",
-//            image: "moped",
-//            badgeTitle: "New",
-//            isBadgeBlinking: false,
-//            action: {}
-//        )
-//    }
-//}
+#Preview {
+    LMPrimaryServiceButton(
+        title: "Food",
+        image: "fork.knife",
+        badgeTitle: "Discount 100฿",
+        badgeType: .type1,
+        isBadgeBlinking: true,
+        action: {}
+    )
+    
+    HStack {
+        LMPrimaryServiceButton(
+            title: "Food",
+            image: "popcorn",
+            badgeTitle: "ใหม่",
+            badgeType: .type2,
+            isBadgeBlinking: true,
+            action: {}
+        )
+        
+        LMPrimaryServiceButton(
+            title: "Food",
+            image: "moped",
+            badgeTitle: "New",
+            badgeType: .type3,
+            isBadgeBlinking: false,
+            action: {}
+        )
+    }
+}

@@ -10,7 +10,7 @@ import SwiftUI
 struct LMSecondaryServiceButton: View {
     let title: String
     let image: String
-    let badge: String?
+    let badgeTitle: String?
     let action: () -> Void
     
     var body: some View {
@@ -25,18 +25,9 @@ struct LMSecondaryServiceButton: View {
                             .foregroundStyle(LMColor.gradientGreen)
                         
                         // Badge if exists
-                        if let badge = badge {
-                            Text(badge)
-                                .font(.system(size: 10))
-                                .bold()
-                                .foregroundColor(.red)
-                                .padding(.horizontal, 6)
-                                .background(.white)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .fill(Color.red.opacity(0.2))
-                                )
-                                .offset(x: 12, y: -12)
+                        if let badgeTitle = badgeTitle {
+                            LMCoreServiceBadge(text: badgeTitle, type: .type3)
+                                .offset(x: 12, y: -16)
                         }
                     }
                     .padding(.top, 12)
@@ -50,7 +41,7 @@ struct LMSecondaryServiceButton: View {
             
             // Title
             Text(title)
-                .font(.system(size: 14))
+                .font(.lmFont(type: .bold, size: 14))
                 .bold()
                 .foregroundColor(LMColor.fontSoftBlack)
                 .padding(.bottom, 8)
@@ -61,13 +52,13 @@ struct LMSecondaryServiceButton: View {
 #Preview {
     VStack(spacing: 16) {
         HStack {
-            LMSecondaryServiceButton(title: "Delivery", image: "cart", badge: "New", action: {})
-            LMSecondaryServiceButton(title: "Delivery", image: "cart", badge: "New", action: {})
+            LMSecondaryServiceButton(title: "Delivery", image: "cart", badgeTitle: "New", action: {})
+            LMSecondaryServiceButton(title: "Delivery", image: "cart", badgeTitle: "New", action: {})
         }
         HStack {
-            LMSecondaryServiceButton(title: "Delivery", image: "cart", badge: "New", action: {})
-            LMSecondaryServiceButton(title: "Delivery", image: "cart", badge: "New", action: {})
-            LMSecondaryServiceButton(title: "Delivery", image: "cart", badge: "New", action: {})
+            LMSecondaryServiceButton(title: "Delivery", image: "cart", badgeTitle: "New", action: {})
+            LMSecondaryServiceButton(title: "Delivery", image: "cart", badgeTitle: "New", action: {})
+            LMSecondaryServiceButton(title: "Delivery", image: "cart", badgeTitle: "New", action: {})
         }
     }
 }

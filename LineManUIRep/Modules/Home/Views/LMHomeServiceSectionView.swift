@@ -57,9 +57,9 @@ struct LMHomeServiceSectionView: View {
                         action: {})
                 }
                 HStack(spacing: LMTheme.Spacing.spacing12) {
-                    LMSecondaryServiceButton(title: "Messenger", image: "bag", badge: "ลดราคา", action: {})
-                    LMSecondaryServiceButton(title: "Mart", image: "basket", badge: "ส่งฟรี", action: {})
-                    LMSecondaryServiceButton(title: "Package", image: "ticket", badge: "SALE", action: {})
+                    LMSecondaryServiceButton(title: "Messenger", image: "bag", badgeTitle: "ลดราคา", action: {})
+                    LMSecondaryServiceButton(title: "Mart", image: "basket", badgeTitle: "ส่งฟรี", action: {})
+                    LMSecondaryServiceButton(title: "Package", image: "ticket", badgeTitle: "SALE", action: {})
                 }
             }
         }
