@@ -8,43 +8,32 @@
 import SwiftUI
 
 struct LMHomeProfileSectionView: View {
-    fileprivate let customerName: String
-    fileprivate let promotionText: String
     fileprivate let rightArrowIcon = "chevron.right"
+    fileprivate let heartIcon = "heart"
     
-    @Binding var isProfilePressed: Bool
-    @Binding var isFavoritePressed: Bool
-    
-    init(
-        customerName: String,
-        promotionText: String,
-        isProfilePressed: Binding<Bool> = .constant(false),
-        isFavoritePressed: Binding<Bool> = .constant(false)) {
-        self.customerName = customerName
-        self.promotionText = promotionText
-        self._isProfilePressed = isProfilePressed
-        self._isFavoritePressed = isFavoritePressed
-    }
+    let customerName: String
+    let promotionText: String
+    let promotionId: String
+    let onPromotionTapped: (_ promotionId: String) -> Void
+    let onFavoriteTapped: () -> Void
     
     var body: some View {
         VStack {
             HStack() {
                 // Left side text content
                 Button(action: {
-                    isProfilePressed = true
+                    onPromotionTapped(promotionId)
                 }) {
-                    VStack(alignment: .leading, spacing: 8) {
+                    VStack(alignment: .leading) {
                         Text("Hi \(customerName)")
-                            .font(.system(size: 16))
-                            .bold()
+                            .font(.lmFont(type: .regular, size: 14))
                             .foregroundColor(.white)
                         
                         HStack {
                             Text(promotionText)
-                                .font(.system(size: 18))
-                                .fontWeight(.bold)
+                                .font(.lmFont(type: .bold, size: 16))
                             Image(systemName: rightArrowIcon)
-                                .font(.system(size: 16))
+                                .font(.lmFont(type: .regular, size: 16))
                         }
                         .foregroundColor(.white)
                     }
@@ -52,12 +41,12 @@ struct LMHomeProfileSectionView: View {
                 
                 Spacer()
                 
-                // Right side heart button
+                // Right side heart button - favorite
                 HStack {
                     Button(action: {
-                        isFavoritePressed = true
+                        onFavoriteTapped()
                     }) {
-                        Image(systemName: "heart")
+                        Image(systemName: heartIcon)
                             .font(.system(size: 18))
                             .foregroundColor(.green)
                             .padding(8)
@@ -72,6 +61,6 @@ struct LMHomeProfileSectionView: View {
 }
 
 #Preview {
-    LMHomeProfileSectionView(customerName: "Anak", promotionText: "Every Meal Start ฿49", isProfilePressed: .constant(false), isFavoritePressed: .constant(false))
+    LMHomeProfileSectionView(customerName: "John Doe", promotionText: "By 1 get 1", promotionId: "p-123", onPromotionTapped: { _ in }, onFavoriteTapped: {})
         .background(Color.gray)
 }

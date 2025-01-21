@@ -21,34 +21,34 @@ struct LMHomeContentView: View {
                     
                     // Part 1
                     VStack(spacing: LMTheme.Spacing.spacing16) {
-                        LMHomeProfileSection(customerName: "Anak", promotionText: "Every Meal Start ฿49*")
+                        LMHomeProfileSectionView(customerName: "Anak", promotionText: "Every Meal Start ฿49*", promotionId: "xx", onPromotionTapped: { _ in }, onFavoriteTapped: {})
                         LMHomeDeliveryAddressSection(address: "PeonyBake Coffee Shop")
                         LMHomeServiceSectionView()
                     }
                     .padding(.horizontal, LMTheme.Padding.padding16)
                     .padding(.top, topInsetHeight)
                 })
-                
-                Spacer(minLength: LMTheme.Spacing.spacing20)
-                
-                if homeServiceCurrentState.serviceState == .withDelivery {
-                    VStack {
-                        LMStandalonePromoSectionView(action: {})
-                    }
-                    .padding(.horizontal, LMTheme.Padding.padding16)
-                    .padding(.bottom, LMTheme.Padding.padding16)
-                }
-                
-                // Part 2
-                LMCarouselPromoSectionView()
-                Spacer(minLength: LMTheme.Spacing.spacing20)
-                
-                // Part 3 - For .withDelivery
-                if homeServiceCurrentState.serviceState == .withDelivery {
-                    LMSquarePromoSectionView()
-                }
-                
-                Spacer(minLength: LMTheme.Spacing.spacing24)
+//                
+//                Spacer(minLength: LMTheme.Spacing.spacing20)
+//                
+//                if homeServiceCurrentState.serviceState == .withDelivery {
+//                    VStack {
+//                        LMStandalonePromoSectionView(action: {})
+//                    }
+//                    .padding(.horizontal, LMTheme.Padding.padding16)
+//                    .padding(.bottom, LMTheme.Padding.padding16)
+//                }
+//                
+//                // Part 2
+//                LMCarouselPromoSectionView()
+//                Spacer(minLength: LMTheme.Spacing.spacing20)
+//                
+//                // Part 3 - For .withDelivery
+//                if homeServiceCurrentState.serviceState == .withDelivery {
+//                    LMSquarePromoSectionView()
+//                }
+//                
+//                Spacer(minLength: LMTheme.Spacing.spacing24)
             }
             .scrollIndicators(.never)
             .ignoresSafeArea(edges: .top)
